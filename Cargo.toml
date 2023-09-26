@@ -1,8 +1,8 @@
 [package]
-name = "tictactoe_bevy" 
+name = "tictactoe_bevy"
 version = "0.1.0"
 publish = false
-authors = ["Mateusz Kifner"] 
+authors = ["Mateusz Kifner"]
 edition = "2021"
 exclude = ["dist", "build", "assets", "credits"]
 
@@ -25,9 +25,7 @@ inherits = "release"
 lto = "thin"
 
 [features]
-dev = [
-    "bevy/bevy_dylib",
-]
+dev = ["bevy/bevy_dylib"]
 
 [dependencies]
 bevy = { version = "0.11.2", default-features = false, features = [
@@ -49,8 +47,8 @@ bevy = { version = "0.11.2", default-features = false, features = [
     "wayland",
     "ktx2",
     "filesystem_watcher",
-    "tonemapping_luts"
-    ] }
+    "tonemapping_luts",
+] }
 bevy_kira_audio = { version = "0.17" }
 bevy_asset_loader = { version = "0.17" }
 rand = { version = "0.8.3" }

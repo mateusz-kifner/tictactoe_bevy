@@ -16,7 +16,8 @@ fn main() {
         .add_plugins(DefaultPlugins.set(WindowPlugin {
             primary_window: Some(Window {
                 title: "TicTacToe".to_string(),
-                resolution: (800., 600.).into(),
+                resolution: (600., 600.).into(),
+                resizable: false,
                 // Bind to canvas included in `index.html`
                 canvas: Some("#bevy".to_owned()),
                 // Tells wasm not to override default event handling, like F5 and Ctrl+R

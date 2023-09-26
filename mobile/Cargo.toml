@@ -33,3 +33,6 @@ target_sdk_version = 31
 [package.metadata.android.application]
 icon = "@mipmap/icon"
 label = "TicTacToe"
+
+[package.metadata.android.application.activity]
+orientation = "portrait"

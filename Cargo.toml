@@ -1,8 +1,8 @@
 [package]
-name = "bevy_game" # ToDo
+name = "tictactoe_bevy" 
 version = "0.1.0"
 publish = false
-authors = ["Niklas Eicker <git@nikl.me>"] # ToDo: you are the author ;)
+authors = ["Mateusz Kifner"] 
 edition = "2021"
 exclude = ["dist", "build", "assets", "credits"]
 
@@ -30,7 +30,7 @@ dev = [
 ]
 
 [dependencies]
-bevy = { version = "0.11", default-features = false, features = [
+bevy = { version = "0.11.2", default-features = false, features = [
     "animation",
     "bevy_asset",
     "bevy_scene",
@@ -46,12 +46,12 @@ bevy = { version = "0.11", default-features = false, features = [
     "hdr",
     "zstd",
     "x11",
+    "wayland",
     "ktx2",
     "filesystem_watcher",
-    "tonemapping_luts",
-    "webgl2"
-] }
-bevy_kira_audio = { version = "0.16" }
+    "tonemapping_luts"
+    ] }
+bevy_kira_audio = { version = "0.17" }
 bevy_asset_loader = { version = "0.17" }
 rand = { version = "0.8.3" }
 
@@ -60,4 +60,4 @@ winit = { version = "0.28", default-features = false }
 image = { version = "0.24", default-features = false }
 
 [build-dependencies]
-embed-resource = "1.4"
+embed-resource = "2.3"

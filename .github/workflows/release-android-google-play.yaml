@@ -4,20 +4,19 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'GitHub Release'
+        description: "GitHub Release"
         required: true
         type: string
       play_release:
-        description: 'Release name from google play console'
+        description: "Release name from google play console"
         required: true
         type: string
 
-# ToDo: adapt names
 env:
   # used for uploading the app to a GitHub release
-  GAME_EXECUTABLE_NAME: bevy_game
+  GAME_EXECUTABLE_NAME: tictactoe_bevy
   BUNDLE_PATH: "target/x/release/android/mobile.aab"
-  PACKAGE_NAME: "me.nikl.bevygame"
+  PACKAGE_NAME: "org.example.tictactoe_bevy"
   # release track; you can promote a build to "higher" tracks in the play console or publish to a different track directly
   # see track at https://github.com/r0adkll/upload-google-play#inputs for more options
   TRACK: internal

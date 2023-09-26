@@ -76,40 +76,6 @@ fn print_board(board: &Board) {
 
 fn spawn_camera(mut commands: Commands) {
     commands.spawn(Camera2dBundle::default());
-    commands.spawn(SpriteBundle {
-        sprite: Sprite {
-            color: Color::rgb(
-                1.0, 0.0, 0.0,
-                // ((x + y) % 2) as f32,
-            ),
-            custom_size: Some(Vec2::new(100.0, 100.0)),
-            ..default()
-        },
-        transform: Transform::from_xyz(50.0, 50.0, 5.0),
-        ..default()
-    });
-    // for x in 0..16 {
-    //     for y in 0..16 {
-    //         commands.spawn(SpriteBundle {
-    //             sprite: Sprite {
-    //                 color: Color::rgb(
-    //                     1.0 / 16.0 * x as f32,
-    //                     1.0 / 16.0 * y as f32,
-    //                     0.0,
-    //                     // ((x + y) % 2) as f32,
-    //                 ),
-    //                 custom_size: Some(Vec2::new(100.0, 100.0)),
-    //                 ..default()
-    //             },
-    //             transform: Transform::from_xyz(
-    //                 x as f32 * 100.0 + 50.0,
-    //                 y as f32 * 100.0 + 50.0,
-    //                 5.0,
-    //             ),
-    //             ..default()
-    //         });
-    //     }
-    // }
 }
 
 fn check_win(grid: &[[char; 3]; 3], player: char) -> bool {
@@ -164,8 +130,8 @@ fn evaluate_game(
 ) {
     let window = window_query.get_single().unwrap();
     if data.input_position.x != -1.0 {
-        let board_pos_x = -200.0;
-        let board_pos_y = -200.0;
+        let board_pos_x = (window.resolution.width() - 400.0) / 2.0;
+        let board_pos_y = (window.resolution.height() - 400.0) / 2.0;
         let pos = data.input_position;
         let x = ((pos.x - board_pos_x) / 133.0);
         let y = ((pos.y - board_pos_y) / 133.0);
@@ -179,8 +145,8 @@ fn evaluate_game(
             if (data.turn % 2 == 0) {
                 commands.spawn(SpriteBundle {
                     transform: Transform::from_xyz(
-                        board_pos_x + (133 * x as u32) as f32 + 67.5,
-                        board_pos_y + (133 * (3.0 - y) as u32) as f32 + 67.5,
+                        (133 * x as u32) as f32 + 67.5 - 200.0,
+                        (133 * (3.0 - y) as u32) as f32 + 67.5 - 200.0,
                         0.0,
                     ),
                     texture: asset_server.load("textures/cross.png"),
@@ -190,8 +156,8 @@ fn evaluate_game(
             } else {
                 commands.spawn(SpriteBundle {
                     transform: Transform::from_xyz(
-                        board_pos_x + (133 * x as u32) as f32 + 67.5,
-                        (133 * (3.0 - y) as u32) as f32 + 67.5 + board_pos_y,
+                        (133 * x as u32) as f32 + 67.5 - 200.0,
+                        (133 * (3.0 - y) as u32) as f32 + 67.5 - 200.0,
                         0.0,
                     ),
                     texture: asset_server.load("textures/circle.png"),

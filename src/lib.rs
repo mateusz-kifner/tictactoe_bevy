@@ -190,7 +190,7 @@ fn evaluate_game(
                             value: format!("Player {} won", data.won.to_string()),
                             style: TextStyle {
                                 color: Color::rgb(0.0, 0.0, 0.0),
-                                font_size: 96.0,
+                                font_size: if window.width() < 500.0 { 32.0 } else { 96.0 },
                                 font: asset_server.load("fonts/FiraSans-Bold.ttf"),
                             },
                         }],
@@ -217,7 +217,7 @@ fn evaluate_game(
                             value: format!("It's a Tie"),
                             style: TextStyle {
                                 color: Color::rgb(0.0, 0.0, 0.0),
-                                font_size: 96.0,
+                                font_size: if window.width() < 500.0 { 32.0 } else { 96.0 },
                                 font: asset_server.load("fonts/FiraSans-Bold.ttf"),
                             },
                         }],

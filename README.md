@@ -3,4 +3,4 @@
 #### Run desktop
 ``` cargo run ```
 #### run android
-``` cargo pkg -p mobile ```
+``` cargo apk run -p mobile ```
